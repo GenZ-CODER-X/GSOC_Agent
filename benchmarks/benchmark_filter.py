@@ -62,6 +62,11 @@ def benchmark_filter():
 
     projection_end = time.perf_counter()
 
+    print("\n--- DEBUG FILTER INPUT ---")
+    print("Type:", type(filter_input))
+    print("Value:", repr(filter_input))
+    print("Count:", len(filter_input) if filter_input is not None else None)
+
     # =========================================
     # 3. SERIALIZE DATA FOR PROMPT
     # =========================================

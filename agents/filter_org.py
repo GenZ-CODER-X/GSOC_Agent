@@ -18,6 +18,7 @@ def build_filter_input(org_info: dict) -> dict:
             "technologies": org.get("technologies", []),
             "topics": org.get("topics", []),
         }
+    return filter_input
 
 def filter_org():
     organisations = [
@@ -100,7 +101,14 @@ def filter_org():
 
     print(result)
     return result
-        
 
+if __name__ == "__main__":
+    result = filter_org()
 
-    return filter_input
+    print("\n===== KEPT =====")
+    for org in result.organizations:
+        print(org)
+
+    print("\n===== DISCARDED =====")
+    for org in result.discarded_organizations:
+        print(f"\n{org}")
