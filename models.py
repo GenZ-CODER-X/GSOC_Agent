@@ -30,7 +30,7 @@ class Organisation(Base):
     __tablename__ = "organisations"
     id = Column(Integer, primary_key=True, index=True)
     org_name = Column(String(255), unique=True, nullable=False)
-    user_entry_id=Column(Integer,ForeignKey("organisations_entry.id"),nullable=False)
+    user_entry_id=Column(Integer,ForeignKey("organisations_entry.id"),nullable=False,unique=True)
     status = Column(String(100),default="Pending")
     recent_activity = Column(Text)
     created_at = Column(

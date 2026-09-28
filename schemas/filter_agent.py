@@ -2,20 +2,22 @@ from pydantic import BaseModel, ConfigDict
 
 
 class DiscardOrgOutput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     org_name: str
-    tech_stack_org: list[str] | None = None
-    missing_skills: list[str] | None = None
+    tech_stack_org: list[str] | None
+    missing_skills: list[str] | None 
     reason: str
-    is_discard: bool
 
 
 class OrganisationOutput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     org_name: str
-    user_entry_id: int
-    status: str = "Pending"
-    recent_activity: str | None = None
 
 
 class FilterOrgBatchOutput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     discarded_organizations: list[DiscardOrgOutput]
     organizations: list[OrganisationOutput]
